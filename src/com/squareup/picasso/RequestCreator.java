@@ -20,7 +20,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.widget.ImageView;
-import org.jetbrains.annotations.TestOnly;
 
 import java.io.IOException;
 
@@ -54,7 +53,6 @@ public class RequestCreator {
         this.data = new Request.Builder(uri, resourceId);
     }
 
-    @TestOnly
     RequestCreator() {
         this.picasso = null;
         this.data = new Request.Builder(null, 0);

@@ -228,6 +228,8 @@ abstract class BitmapHunter implements Runnable {
             return new FileBitmapHunter(context, picasso, dispatcher, cache, stats, action);
         } else if (SCHEME_ANDROID_RESOURCE.equals(scheme)) {
             return new ResourceBitmapHunter(context, picasso, dispatcher, cache, stats, action);
+        } else if(FakeUrlBitmapHunter.FAKE_SCHEME.equals(scheme)) {
+            return new FakeUrlBitmapHunter(picasso, dispatcher, cache, stats, action);
         } else {
             return new NetworkBitmapHunter(picasso, dispatcher, cache, stats, action, downloader);
         }
@@ -259,7 +261,7 @@ abstract class BitmapHunter implements Runnable {
     }
 
     static Bitmap applyCustomTransformations(final List<Transformation> transformations, Bitmap result) {
-        for (int i = 0; final int count = transformations.size();i < count; i++) {
+        for (int i = 0, count = transformations.size(); i < count; i++) {
             final Transformation transformation = transformations.get(i);
             final Bitmap newResult = transformation.transform(result);
 

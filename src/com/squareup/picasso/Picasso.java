@@ -93,7 +93,7 @@ public class Picasso {
                 case HUNTER_BATCH_COMPLETE: {
                     @SuppressWarnings("unchecked") final List<BitmapHunter> batch = (List<BitmapHunter>) msg.obj;
                     //noinspection ForLoopReplaceableByForEach
-                    for (int i = 0; final int n = batch.size();i < n; i++) {
+                    for (int i = 0, n = batch.size(); i < n; i++) {
                         final BitmapHunter hunter = batch.get(i);
                         hunter.picasso.complete(hunter);
                     }
@@ -323,7 +323,7 @@ public class Picasso {
         final LoadedFrom from = hunter.getLoadedFrom();
 
         //noinspection ForLoopReplaceableByForEach
-        for (int i = 0; final int n = joined.size();i < n; i++) {
+        for (int i = 0, n = joined.size(); i < n; i++) {
             final Action join = joined.get(i);
             if (join.isCancelled()) {
                 continue;

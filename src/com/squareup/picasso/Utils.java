@@ -128,7 +128,7 @@ final class Utils {
 
         if (data.transformations != null) {
             //noinspection ForLoopReplaceableByForEach
-            for (int i = 0; final int count = data.transformations.size();i < count; i++) {
+            for (int i = 0, count = data.transformations.size(); i < count; i++) {
                 builder.append(data.transformations.get(i).key());
                 builder.append('\n');
             }
